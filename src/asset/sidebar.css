@@ -1,0 +1,22 @@
+:root{
+    --primary: #B88F2D;
+    --hover_primary : #865f04;
+}
+
+
+.bg-sidebar{
+    background: #FDFCF9;
+}
+
+.bg-sidebar .ant-menu{
+    background-color: transparent;
+}
+
+.logo__sidebar{
+    width: 90%;
+    object-fit: contain;
+}
+
+.padd__sidebar{
+    height: 45px;
+}

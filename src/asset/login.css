@@ -1,0 +1,99 @@
+.login__div {
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form__login label {
+  color: #aaaaaa;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.img__logo {
+  max-width: 180px;
+  width: 100%;
+  object-fit: contain;
+}
+.title__login {
+  font-weight: 800;
+  color: black;
+}
+
+.login__div p {
+  font-weight: 600;
+  color: #aaaaaa;
+  transition: all 0.35s;
+}
+
+.login__div a:hover p {
+  color: var(--primary);
+}
+
+.form__login .ant-input-affix-wrapper,
+.form__login .ant-form-item-control-input-content > .ant-input {
+  border-radius: 9px;
+  padding: 15px;
+}
+.form__login .ant-input-affix-wrapper:hover,
+.form__login .ant-input-affix-wrapper:focus,
+.form__login .ant-form-item-control-input-content > .ant-input:hover,
+.form__login .ant-form-item-control-input-content > .ant-input:focus {
+  border: 1px solid var(--primary) !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.form__login button.ant-btn-primary {
+  background-color: var(--primary);
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  width: 100%;
+  font-weight: 600;
+  border-radius: 9px;
+  height: unset !important;
+  border: 0;
+}
+
+.form__login button.ant-btn-primary:hover{
+    background-color: var(--hover_primary);
+}
+.btn.ant-btn{
+    padding: 10px 12px;
+    border-radius: 9px;
+    height: unset !important;
+    font-weight: 600;
+}
+.btn.btn__primary{
+    background-color: var(--primary);
+    border: 0;
+}
+.btn.btn__primary:hover{
+    background-color: var(--hover_primary);
+}
+.btn.btn__white{
+    background-color: white;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+.btn.btn__white:hover{
+    background-color: #fbecca;
+    color: var(--primary);
+    border: 1px solid var(--hover_primary);
+}
+.img__bg{
+    z-index: -0;
+    width: 100%;
+    bottom: 0px;
+    right: 0px;
+}
+.container__login{
+    z-index: 100;
+}
+.padding__form{
+    height: 20px;
+}
