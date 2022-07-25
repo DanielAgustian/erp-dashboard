@@ -5,7 +5,7 @@
 
 
 .bg-sidebar{
-    background: #FDFCF9;
+    background: #FDFCF9 !important;
 }
 
 .bg-sidebar .ant-menu{
@@ -19,4 +19,21 @@
 
 .padd__sidebar{
     height: 45px;
+}
+.ant-layout-sider-zero-width-trigger{
+    background-color: #865f04 !important;
+}
+.ant-layout-sider-zero-width-trigger .anticon{
+    vertical-align: 0.1em;
+}
+
+.bg-sidebar .logo__menu{
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+.ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon, .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow,
+.ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+    color: var(--primary) !important;
 }

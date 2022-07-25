@@ -1,20 +1,19 @@
 import SideBar from "../components/sidebar";
+import { Layout } from "antd";
+import { Content } from "antd/lib/layout/layout";
+import Header from "../components/header";
 
 function DashboardPage() {
-    return(
-        <>
-        <div className="row">
-            <div className="col-lg-2">
-                <SideBar></SideBar>
-            </div>
-            <div className="col-lg-10">
-
-            </div>
-        </div>
-            
-           
-        </>
-    );
+  return (
+    <>
+      <Layout>
+        <SideBar></SideBar>
+        <Layout>
+            <Header></Header>
+        </Layout>
+      </Layout>
+    </>
+  );
 }
 
 export default DashboardPage;
