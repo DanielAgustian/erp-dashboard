@@ -1,15 +1,17 @@
-import SideBar from "../components/sidebar";
-import { Layout, Input, Button, Table, Pagination } from "antd";
-// import { Content } from "antd/lib/layout/layout";
-import { HeaderSearch, HeaderButton } from "../components/header";
-import "../asset/dashboard.css";
-import TableComponentAR from "../components/table_ar";
+import SideBar from "../../../components/sidebar";
+import { Layout, Input, Button, Dropdown, Menu, Space, Pagination } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+
+import { HeaderSearch, HeaderButton } from "../../../components/header";
+import "../../../asset/dashboard.css";
+import TableComponentAR from "../../../components/table_ar";
 
 const { Content } = Layout;
 const { Search } = Input;
 
-function DashboardPage() {
+function RiwayatARPage() {
   const onSearch = (word) => {};
+  const list = [];
   // Setting Column
   const columns = [
     {
@@ -60,7 +62,7 @@ function DashboardPage() {
     },
   ];
   const dataTable = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 2; i++) {
     dataTable.push({
       key: i,
       nama_paket: `Paket Warisan ${i}`,
@@ -76,12 +78,70 @@ function DashboardPage() {
       bonus_kd: "Rp. 30.000",
     });
   }
+  const menu = (
+    <Menu
+      items={[
+        {
+          key: "terbaru",
+          label: (
+            <a target="_blank" rel="noopener noreferrer" href="">
+              Urutkan: Terbaru
+            </a>
+          ),
+        },
+        {
+          key: "terlama",
+          label: (
+            <a target="_blank" rel="noopener noreferrer" href="">
+              Urutkan: Terlama
+            </a>
+          ),
+        },
+      ]}
+    />
+  );
   const onChangePage = () => {};
+
+  const dropdownMenu = () => {
+    return (
+      <div className="my-4 d-flex">
+        <div className=" box__dropdown">
+          <Dropdown overlay={menu} trigger={["click"]}>
+            <a onClick={(e) => e.preventDefault()}>
+              <Space>
+                Urutkan: Terbaru
+                <DownOutlined classID="ms-2" />
+              </Space>
+            </a>
+          </Dropdown>
+        </div>
+      </div>
+    );
+  };
   const LesserHeader = () => {
     return (
       <div className="row align-items-center justify-content-between mt-4">
         <div className="col-lg-4 col-md-4">
-          <h5 className="mb-0 title__dashboard">Daftar Paket AR</h5>
+          <div className="d-flex align-items-center">
+            <a href="/warisan/paket-ar">
+              <Button type="text" className=" back_btn">
+                <div>
+                  <i class="fa-solid fa-chevron-left"></i>
+                </div>
+              </Button>
+            </a>
+
+            <h6 className="mb-0 title__dashboard">Riwayat Master</h6>
+          </div>
+          <div className="d-flex">
+            <div className="back_bot"></div>
+            <a href="/warisan/paket-ar">
+              <div className="breadcrumbs">
+                <span>Paket AR / </span>
+                Riwayat Master
+              </div>
+            </a>
+          </div>
         </div>
         <div className="col-lg-6 col-md-8 ">
           <div className="d-flex align-items-center justify-content-end ">
@@ -109,36 +169,41 @@ function DashboardPage() {
       </div>
     );
   };
-  const paginationTable = () => {
+  const PeriodTable = (period, change) =>{
     return (
-      <div className="d-md-flex d-block justify-content-between pagination__div">
-        <p className="mb-0 pagination__status mr-4 me-4">
-          Menampilkan 1/16 Halaman
-        </p>
-        <Pagination showSizeChanger={false} onChange={onChangePage} defaultCurrent={1} total={100} />
-      </div>
+        <div className="d-flex align-items-center period__div">
+            <h6 className="mr-5 me-5">Periode: {period}</h6>
+            <h6>Perubahan: {change}</h6>
+        </div>
     );
-  };
+  }
+  for (let index = 0; index < 4; index++) {
+    list.push(
+      <>
+        {PeriodTable('DD/MM/YYYY - DD/MM/YYYY','Harga')}
+        <TableComponentAR
+          column={columns}
+          dataTable={dataTable}
+        ></TableComponentAR>
+        <div className="mb-4"></div>
+      </>
+    );
+  }
   return (
     <>
       <Layout>
         <div className="d-flex">
           <SideBar></SideBar>
           <Layout className="bg-white">
-            {/* <HeaderSearch></HeaderSearch> */}
-            <HeaderButton></HeaderButton>
+            <HeaderSearch></HeaderSearch>
+            {/* <HeaderButton></HeaderButton> */}
             <Content>
               <div className="container">
                 {LesserHeader()}
+                {dropdownMenu()}
 
-                <TableComponentAR
-                  
-                  column={columns}
-                  dataTable={dataTable}
-                ></TableComponentAR>
-                {paginationTable()}
+                {list}
               </div>
-              
             </Content>
           </Layout>
         </div>
@@ -147,4 +212,4 @@ function DashboardPage() {
   );
 }
 
-export default DashboardPage;
+export default RiwayatARPage;

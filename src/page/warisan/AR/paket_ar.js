@@ -1,14 +1,14 @@
-import SideBar from "../components/sidebar";
+import SideBar from "../../../components/sidebar";
 import { Layout, Input, Button, Table, Pagination } from "antd";
 // import { Content } from "antd/lib/layout/layout";
-import { HeaderSearch, HeaderButton } from "../components/header";
-import "../asset/dashboard.css";
-import TableComponentAR from "../components/table_ar";
+import { HeaderSearch, HeaderButton } from "../../../components/header";
+import "../../../asset/dashboard.css";
+import TableComponentAR from "../../../components/table_ar";
 
 const { Content } = Layout;
 const { Search } = Input;
 
-function DashboardPage() {
+function PaketARPage() {
   const onSearch = (word) => {};
   // Setting Column
   const columns = [
@@ -115,7 +115,12 @@ function DashboardPage() {
         <p className="mb-0 pagination__status mr-4 me-4">
           Menampilkan 1/16 Halaman
         </p>
-        <Pagination showSizeChanger={false} onChange={onChangePage} defaultCurrent={1} total={100} />
+        <Pagination
+          showSizeChanger={false}
+          onChange={onChangePage}
+          defaultCurrent={1}
+          total={100}
+        />
       </div>
     );
   };
@@ -130,15 +135,15 @@ function DashboardPage() {
             <Content>
               <div className="container">
                 {LesserHeader()}
+                <div className="mt-5">
+                  <TableComponentAR
+                    column={columns}
+                    dataTable={dataTable}
+                  ></TableComponentAR>
+                </div>
 
-                <TableComponentAR
-                  
-                  column={columns}
-                  dataTable={dataTable}
-                ></TableComponentAR>
                 {paginationTable()}
               </div>
-              
             </Content>
           </Layout>
         </div>
@@ -147,4 +152,4 @@ function DashboardPage() {
   );
 }
 
-export default DashboardPage;
+export default PaketARPage;

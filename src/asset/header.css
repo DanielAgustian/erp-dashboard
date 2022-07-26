@@ -1,0 +1,99 @@
+.header-search .ant-page-header-heading{
+    justify-content: start;
+}
+
+.header-search .ant-input-affix-wrapper{
+    border: 0;
+    font-size: 16px;
+    background-color: #F8F8F8;
+    border-radius: 4px !important;
+    min-width: 220px;
+}
+.header-search .ant-input{
+    background-color: #F8F8F8;
+}
+.header-search .ant-btn:focus, .header-search .ant-btn:active,
+.header-search .ant-input-affix-wrapper:focus{
+    outline:  none !important;
+    box-shadow: none;
+    background-color: #F8F8F8;
+}
+.header-search .ant-btn{
+    border: 0;
+    box-shadow: none;
+    background-color: #F8F8F8;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+.header-search .ant-input-affix-wrapper-focused{
+    box-shadow: none;
+    outline: none;
+}
+
+.btn.btn__primary{
+    background-color: var(--primary);
+    border: 0;
+    color: white;
+}
+.btn.btn__primary:hover{
+    background-color: var(--hover_primary);
+}
+.btn.btn__white{
+    background-color: white;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+.btn.btn__white:hover{
+    background-color: #fbecca;
+    color: var(--primary);
+    border: 1px solid var(--hover_primary);
+}
+
+.header-button .btn{
+    padding: 8px 30px !important;
+    border-radius: 4px !important;
+}
+.modal__add__sku .ant-modal-content{
+    border-radius: 12px !important;
+}
+
+.modal__add__sku .title{
+    font-weight: 700;
+    font-size: 18px;
+}
+.modal__add__sku .detail{
+    color: #0000004D;
+    font-weight: 600;
+    
+}
+
+.modal__add__sku .label__form p{
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.modal__add__sku .ant-form-item{
+    margin-bottom: 0px;
+}
+.form__sku .ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.form__sku .ant-input-affix-wrapper,
+.form__sku .ant-form-item-control-input-content > .ant-input {
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.form__sku .ant-select:not(.ant-select-customize-input) .ant-select-selector:hover,
+.form__sku .ant-select:not(.ant-select-customize-input) .ant-select-selector:focus,
+.form__sku .ant-input-affix-wrapper:hover,
+.form__sku .ant-input-affix-wrapper:focus,
+.form__sku .ant-form-item-control-input-content > .ant-input:hover,
+.form__sku .ant-form-item-control-input-content > .ant-input:focus {
+  border: 1px solid var(--primary) !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.btn__sku__modal .btn{
+    padding: 7px 15px;
+    border-radius: 4px;
+}

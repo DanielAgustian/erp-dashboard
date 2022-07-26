@@ -8,16 +8,9 @@ import {
 } from "@ant-design/icons";
 import Sider from "antd/lib/layout/Sider";
 import LogoYokesen from "../asset/images/logogram.png";
+import { useNavigate } from "react-router-dom"
 
-function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
-}
+
 
 function ImageLogo(asset, currLocation) {
   return (
@@ -30,30 +23,30 @@ function ImageLogo(asset, currLocation) {
 // submenu keys of first level
 
 function SideBar(params) {
-  const items = [
-    getItem("Yokesen", "sub1", ImageLogo(LogoYokesen), [
-      getItem("Option 1", "1"),
-      getItem("Option 2", "2"),
-      getItem("Option 3", "3"),
-      getItem("Option 4", "4"),
-    ]),
-    getItem("Warisan", "sub2", ImageLogo(LogoYokesen), [
-      getItem("Paket AR", "5"),
-      getItem("Transaksi Paket", "6"),
-      getItem("Vendor", "7"),
-      getItem("Transaksi RO", '8'),
-      getItem("Stok", '10'),
-      getItem("Form Pengajuan", '11'),
-      getItem("Budget", '12')
-    ]),
-    getItem("Navigation Three", "sub4", ImageLogo(LogoYokesen), [
-      getItem("Option 9", "9"),
-      getItem("Option 10", "10"),
-      getItem("Option 11", "11"),
-      getItem("Option 12", "12"),
-    ]),
-  ];
+  const navigate = useNavigate()
 
+  const redirect = (link) => {
+    // navigate(link);
+    console.log(link.key);
+    navigate(link.key);
+  };
+  const items = [
+    { label: "Yokesen", key: "/yokesen", icon: ImageLogo(LogoYokesen) }, // remember to pass the key prop
+    {
+      label: "Warisan",
+      key: "/warisan",
+      icon: ImageLogo(LogoYokesen),
+      children: [
+        { label: "Paket AR", key: "/warisan/paket-ar" },
+        { label: "Transaksi Paket", key: "/warisan/transaksi-paket" },
+        { label: "Vendor", key: "/warisan/vendor" },
+        { label: "Transaksi RO", key: "/warisan/transaksi-ro" },
+        { label: "Stok", key: "/warisan/stok" },
+        { label: "Form Pengajuan", key: "/warisan/form-pengajuan" },
+        { label: "Budget", key: "/warisan/budget" },
+      ],
+    }, // which is required
+  ];
   return (
     <>
       <Sider
@@ -65,12 +58,13 @@ function SideBar(params) {
         <div className="px-3 mb-4">
           <img src={logo} className="logo__sidebar"></img>
         </div>
-       
+
         <Menu
           mode="inline"
           defaultSelectedKeys={[2]}
           items={items}
           style={{ border: 0 }}
+            onClick={redirect}
         />
       </Sider>
     </>
